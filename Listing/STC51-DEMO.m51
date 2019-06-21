@@ -1,0 +1,200 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        05/01/2017  12:54:09  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+F:\PROGRAM FILES\KEIL\C51\BIN\BL51.EXE ..\Output\STARTUP.obj, ..\Output\main.obj, ..\Output\delay.obj, ..\Output\LED.obj
+>>  TO ..\Output\STC51-DEMO PRINT (..\Listing\STC51-DEMO.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  ..\Output\STARTUP.obj (?C_STARTUP)
+  ..\Output\main.obj (MAIN)
+  ..\Output\delay.obj (DELAY)
+  ..\Output\LED.obj (LED)
+
+
+LINK MAP OF MODULE:  ..\Output\STC51-DEMO (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0002H     UNIT         ?DT?_SAMPLINGDELAY?DELAY
+            DATA    000AH     0001H     UNIT         ?DT?LED
+            IDATA   000BH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0020H     UNIT         ?PR?LED_FLASH?LED
+            CODE    0023H     001EH     UNIT         ?PR?_DELAY?DELAY
+            CODE    0041H     001BH     UNIT         ?PR?_SAMPLINGDELAY?DELAY
+            CODE    005CH     000CH     UNIT         ?C_C51STARTUP
+            CODE    0068H     0005H     UNIT         ?PR?MAIN?MAIN
+
+
+
+OVERLAY MAP OF MODULE:   ..\Output\STC51-DEMO (?C_STARTUP)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN
+  +--> ?PR?LED_FLASH?LED
+
+?PR?LED_FLASH?LED
+  +--> ?PR?_DELAY?DELAY
+
+
+
+SYMBOL TABLE OF MODULE:  ..\Output\STC51-DEMO (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/01/2017  12:54:09  PAGE 2
+
+
+
+  -------         MODULE        ?C_STARTUP
+  C:005CH         SEGMENT       ?C_C51STARTUP
+  I:000BH         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:005FH         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:005CH         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:005CH         LINE#         133
+  C:005EH         LINE#         134
+  C:005FH         LINE#         135
+  C:0060H         LINE#         136
+  C:0062H         LINE#         185
+  C:0065H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  C:0068H         PUBLIC        main
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          MAIN
+  C:0068H         LINE#         16
+  C:0068H         LINE#         17
+  C:0068H         LINE#         19
+  C:0068H         LINE#         20
+  C:0068H         LINE#         21
+  C:006BH         LINE#         22
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/01/2017  12:54:09  PAGE 3
+
+
+  -------         MODULE        DELAY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  C:0023H         PUBLIC        _delay
+  D:00B8H         PUBLIC        IP
+  C:0041H         PUBLIC        _SamplingDelay
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        xms
+  -------         DO            
+  D:0006H         SYMBOL        i
+  D:0004H         SYMBOL        j
+  -------         ENDDO         
+  C:0023H         LINE#         19
+  C:0023H         LINE#         20
+  C:0023H         LINE#         22
+  C:002CH         LINE#         23
+  C:0040H         LINE#         24
+  -------         ENDPROC       _DELAY
+  -------         PROC          _SAMPLINGDELAY
+  D:0006H         SYMBOL        n
+  -------         DO            
+  D:0008H         SYMBOL        i
+  -------         ENDDO         
+  C:0041H         LINE#         40
+  C:0041H         LINE#         41
+  C:0041H         LINE#         43
+  C:004FH         LINE#         44
+  C:004FH         LINE#         45
+  C:0050H         LINE#         46
+  C:0051H         LINE#         47
+  C:005BH         LINE#         48
+  -------         ENDPROC       _SAMPLINGDELAY
+  -------         ENDMOD        DELAY
+
+  -------         MODULE        LED
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  C:0003H         PUBLIC        LED_FLASH
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  D:00C8H         PUBLIC        T2CON
+  D:000AH         PUBLIC        i
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          LED_FLASH
+  C:0003H         LINE#         28
+  C:0003H         LINE#         29
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/01/2017  12:54:09  PAGE 4
+
+
+  C:0003H         LINE#         30
+  C:0006H         LINE#         31
+  C:0009H         LINE#         32
+  C:0009H         LINE#         33
+  C:0010H         LINE#         34
+  C:0016H         LINE#         35
+  C:0019H         LINE#         36
+  C:0022H         LINE#         37
+  -------         ENDPROC       LED_FLASH
+  -------         ENDMOD        LED
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SAMPLINGDELAY?DELAY
+
+Program Size: data=12.0 xdata=0 code=109
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)
